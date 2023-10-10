@@ -1,0 +1,9 @@
+<div class="genre-detail-container">
+  <h1>{{genre.name}}</h1>
+  <div class="tracks">
+    <ng-container *ngFor="let track of genre.tracks; let i = index">
+        <app-track-row [track]="track"  [index]="i"></app-track-row>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </div>
+</div>

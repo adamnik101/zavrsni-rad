@@ -1,0 +1,64 @@
+<div class="row" tabindex="0"  #row >
+  <div class="actions" >
+    <p>{{1 + index}}</p>
+    <div *ngIf="track != audioService.track || audioService.audio.paused">
+      <button class="action-button" (click)="play(track)" matTooltip="Play {{track.title}} by {{track.owner.name}}" matTooltipPosition="above" >
+        <img ngSrc="assets/icons-svg/play.svg" alt="play-icon" height="16" width="16"/>
+      </button>
+    </div>
+    <div *ngIf="track == audioService.track && !audioService.audio.paused">
+      <button class="action-button" (click)="pause()" matTooltip="Pause {{track.title}} by {{track.owner.name}}" matTooltipPosition="above">
+        <img ngSrc="assets/icons-svg/pause-round.svg" alt="pause-round-icon" height="18" width="18"/>
+      </button>
+    </div>
+  </div>
+  <div class="info">
+    <p class="title" [style.color]="track == audioService.track ? '#1DB954' : 'var(--text-primary)'">
+      {{track.title}}
+
+    </p>
+    <div class="explicit-name">
+      <img *ngIf="track.explicit" ngSrc="assets/icons-svg/explicit.svg" alt="explicit-icon" height="15" width="15"/>
+      <app-track-artists-info [owner]="track.owner" [features]="track.features"></app-track-artists-info>
+    </div>
+
+
+  </div>
+  <div class="more" (focusin)="stayFocused()">
+    <button [matTooltipPosition]="'right'" [matMenuTriggerFor]="menu" mat-button class="more-button" matTooltip="More options" matTooltipPosition="above">
+      <img ngSrc="assets/icons-svg/more-horizontal.svg" alt="three-dots-icon" height="18" width="18"/>
+    </button>
+    <mat-menu #menu='matMenu' xPosition="before" (closed)="onMenuClosed()">
+      <ng-template matMenuContent>
+        <ng-template [ngIf]="!isInQueue()">
+          <button mat-menu-item (click)="addToQueue(track)">
+            <span>Add to queue</span>
+          </button>
+        </ng-template>
+        <ng-template [ngIf]="isInQueue()">
+          <button mat-menu-item (click)="removeTrackFromQueue(track)">
+            <span>Remove from queue</span>
+          </button>
+        </ng-template>
+        <button mat-menu-item [matMenuTriggerFor]="playlists">
+          <span>Add to playlist</span>
+        </button>
+        <button mat-menu-item>
+          <span>Save to your liked tracks</span>
+        </button>
+        <a routerLink="/artists/{{track.owner.id}}">
+          <button mat-menu-item>Go to artist page
+          </button>
+        </a>
+
+
+
+      </ng-template>
+    </mat-menu>
+
+    <mat-menu #playlists='matMenu'>
+      <button mat-menu-item>My playlist #1</button>
+      <button mat-menu-item>Night ride</button>
+    </mat-menu>
+  </div>
+</div>

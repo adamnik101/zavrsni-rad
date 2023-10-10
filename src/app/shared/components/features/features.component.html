@@ -1,0 +1,8 @@
+<ng-template [ngIf]="features !== undefined && features.length">
+   ft.
+  <a class='artist' routerLink="/artists/{{artist.id}}" *ngFor="let artist of features;let in = index">
+    {{artist.name}}
+    <ng-template [ngIf]="in !== features.length - 1">x
+    </ng-template>
+  </a>
+</ng-template>

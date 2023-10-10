@@ -1,0 +1,14 @@
+.explore{
+  h2{
+    text-transform: capitalize;
+    color: var(--text-primary);
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .genres{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,12 @@
+.not-found{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  h3{
+    color: var(--text-primary);
+    font-size: 55px;
+    font-weight: bold;
+  }
+}

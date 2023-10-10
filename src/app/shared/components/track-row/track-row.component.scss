@@ -1,0 +1,108 @@
+.row{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 5px;
+  transition: .08s ease-in-out;
+  border-radius: 5px;
+  &:hover, .focused{
+    background: var(--primary-color);
+    .actions{
+      p{
+        display: none;
+      }
+      .action-button{
+        img{
+          display: block;
+        }
+        &:hover{
+          transform: scale(1.1);
+          transition: .1s ease-in-out;
+        }
+      }
+
+    }
+    .more{
+      display: flex;
+    }
+  }
+  .actions{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p{
+      display: block;
+      color: var(--text-primary);
+    }
+    .action-button{
+      border: none;
+      background: none;
+      img{
+        display: none;
+      }
+    }
+  }
+  .info{
+    display: flex;
+    flex-direction: column;
+    .title{
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .explicit-name{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      .artist{
+        font-size: 14.5px;
+        text-decoration: none;
+        color: #bebebe;
+      }
+    }
+  }
+  .more{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    display: none;
+    .more-button{
+      background: none;
+      border: none;
+    }
+  }
+}
+.focused {
+  background: var(--primary-color);
+
+  .actions {
+    p {
+      display: none;
+    }
+
+    .action-button {
+      img {
+        display: block;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        transition: .1s ease-in-out;
+      }
+    }
+
+  }
+
+  .more {
+    display: flex;
+  }
+}
+a{
+  color: var(--text-primary);
+  text-decoration: none;
+}

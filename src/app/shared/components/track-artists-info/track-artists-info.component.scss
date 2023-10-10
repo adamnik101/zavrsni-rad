@@ -1,0 +1,11 @@
+.track-info{
+  color: var(--text-section);
+  font-size: 13.5px;
+  .artist{
+    color: var(--text-section);
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

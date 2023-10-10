@@ -1,0 +1,13 @@
+<div class="explore">
+
+  <div class="section-name">
+    <h2>Explore genres</h2>
+  </div>
+  <div class="genres">
+    <ng-container *ngFor="let genre of genres">
+      <app-genre-card [genre]=genre></app-genre-card>
+    </ng-container>
+  </div>
+</div>
+
+

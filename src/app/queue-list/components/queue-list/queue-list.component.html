@@ -1,0 +1,30 @@
+<div class="queue-container">
+  <div class="header">
+    <h4>Queue</h4>
+    <button class="close-queue" mat-button (click)="closeQueueWindow()">Close</button>
+  </div>
+  <ng-template [ngIf]="!queue.length">
+    <p class="no-tracks">No tracks in queue.</p>
+  </ng-template>
+  <ng-template [ngIf]="queue.length">
+    <div cdkDropList (cdkDropListDropped)="drop($event)" id="queue-list" cdkDropListLockAxis="y">
+      <div cdkDrag *ngFor="let track of queue; let i = index" cdkDragBoundary="#queue-list" class="track-list" [style.background-color]="track == audioService.track ? 'var(--primary-color)' : 'var(--canvas-color)'">
+        <!--<div class="counter">
+          {{i + 1}}
+        </div>
+        <div class="container-info">
+          <div class="track-info">
+            <p [style.color]="track == audioService.track ? '#1DB954' : 'var(&#45;&#45;text-primary)'">{{track.title}}</p>
+            <a routerLink="/artists/{{track.owner.id}}">{{track.owner.name}}</a>
+          </div>
+          <button mat-button (click)="removeTrackFromQueue(track)">
+            <img ngSrc="assets/icons-svg/delete.svg" alt="delete-icon" height="25" width="25"/>
+          </button>
+        </div>-->
+        <app-track-row [track]="track" [index]="i"></app-track-row>
+      </div>
+    </div>
+  </ng-template>
+
+
+</div>

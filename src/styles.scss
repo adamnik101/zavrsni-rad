@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Avenir Regular';
+  src: url('assets/fonts/Avenir Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url("assets/fonts/Avenir Heavy.ttf") format('truetype');
+}
+html{
+  //background: linear-gradient(-45deg ,var(--genre-background), var(--canvas-color));
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Regular", serif;
+}
+p{
+  color: var(--text-section);
+  letter-spacing: 1.5px;
+}
+ul{
+  padding-left: 7.5px;
+  list-style: none;
+  li{
+    padding: 8px 0 0 0;
+    a{
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: 2.5px;
+    }
+  }
+}
+h1,h2,h3,h4,h5,h6{
+  color: var(--text-section);
+}
+:root{
+  --canvas-color: #171719;
+  --primary-color: #1e1e1e;
+  --text-primary: #FCFCFC;
+  --text-section: #9898A6;
+  --text-highlight: #00FFFF;
+  --genre-background: #171719FF;
+}
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.custom-dialog{
+  width: 40vw;
+  background: #171719;
+  border-radius: 5px;
+}
+.custom-backdrop {
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust the background color and opacity as needed */
+}
+
+.mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #1DB954 !important;
+
+}
+.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+}
+.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #1DB954 !important;;
+}
+
+.mat-dialog-container {
+  background: #171719;
+}
+.mat-menu-panel{
+  background: var(--primary-color);
+}

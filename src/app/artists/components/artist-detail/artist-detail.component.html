@@ -1,0 +1,39 @@
+<div class="background">
+
+</div>
+<h1>{{artist.name}}</h1>
+<p>Artist</p>
+<div class="list">
+  <button class="action-button" (click)="playAllArtistTracks(artist.own_tracks)" matTooltip="Play {{artist.name}}'s tracks" matTooltipPosition="above" >
+    <img ngSrc="assets/icons-svg/play.svg" alt="play-icon" height="30" width="30"/>
+  </button>
+  <p>
+    {{artist.singles_count}} followers
+  </p>
+  <app-divider></app-divider>
+  <p>
+    {{artist.singles_count}} tracks
+  </p>
+  <app-divider></app-divider>
+  <p>
+    {{artist.feature_tracks_count}} features
+  </p>
+</div>
+
+<div class="tracks">
+  <ng-container *ngFor="let track of artist.own_tracks; let i = index">
+    <app-track-row [track]="track"  [index]="i"></app-track-row>
+    <mat-divider></mat-divider>
+  </ng-container>
+</div>
+
+<div class="features">
+  <ng-container *ngIf="artist.feature_tracks != undefined">
+    <h2>Featuring {{artist.name}}</h2>
+    <ng-container *ngFor="let track of artist.feature_tracks; let i = index">
+      <app-track-row [track]="track" [index]="i"></app-track-row>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </ng-container>
+</div>
+

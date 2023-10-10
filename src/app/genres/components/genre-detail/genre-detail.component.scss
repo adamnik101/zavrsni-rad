@@ -1,0 +1,15 @@
+.genre-detail-container{
+  h1{
+    color: var(--text-primary);
+    text-transform: capitalize;
+    font-size: 70px;
+    font-family: 'Avenir Heavy' !important;
+    text-shadow: 1px 2px 2px #313131;
+  }
+  .tracks{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+
+  }
+}
